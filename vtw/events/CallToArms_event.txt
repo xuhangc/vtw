@@ -1,0 +1,71 @@
+namespace = CallToArms_event
+
+CallToArms_event.1 = {
+
+	type = character_event
+	title = "Call to arms"
+	desc = "My realm's safety is being threatened by my enemies. Hostile forces could cross the border at any moment, pillaging my lands and slaughtering my people. I have the choice to call the banners of my loyal vassals to my aid and assemble a mighty army, but at what cost?"
+	theme = realm
+
+	left_portrait = {
+		character = scope:attacker
+		animation = war_attacker
+	}
+	right_portrait = {
+		character = scope:defender
+		animation = war_defender
+	}
+	
+	option = {
+		name = "Call the banners!"
+		trigger = { 
+			is_defender_in_war = scope:war
+			is_ai = no
+		}
+		every_vassal = {
+			if = { 
+				limit = {
+					highest_held_title_tier >= tier_county
+					is_landed = yes
+					is_powerful_vassal = yes
+					NOR = { 
+						has_relation_rival = root
+						is_at_war_with = root
+						is_attacker_in_war = scope:war
+						is_defender_in_war = scope:war
+					}
+				}
+				scope:war = { add_defender = PREV }
+			}
+		}
+	}
+
+	option = {
+		name = "Call the banners!"
+		trigger = { 
+			is_attacker_in_war = scope:war
+			is_ai = no
+		}
+		every_vassal = {
+			if = { 
+				limit = {
+					highest_held_title_tier >= tier_county
+					is_landed = yes
+					is_powerful_vassal = yes
+					NOR = { 
+						has_relation_rival = root
+						is_at_war_with = root
+						is_attacker_in_war = scope:war
+						is_defender_in_war = scope:war
+					}
+				}
+		  		scope:war = { add_attacker = PREV }
+			}
+		}
+	}
+
+	option = {
+		name = "I will handle this myself..."
+	}
+
+ }
