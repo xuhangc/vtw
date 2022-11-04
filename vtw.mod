@@ -1,4 +1,4 @@
-version="1.4.4"
+version="1.4.5"
 tags={
 	"Utilities"
 	"Character Interactions"
@@ -7,6 +7,6 @@ tags={
 	"Warfare"
 }
 name="Vassal to war"
-supported_version="1.5.1.1"
+supported_version="1.7.2"
 path="C:/Users/cxhhg/Documents/Paradox Interactive/Crusader Kings III/mod/vtw"
 remote_file_id="2730883313"

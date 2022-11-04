@@ -1,0 +1,33 @@
+on_war_started = {
+    on_actions = {
+        custom_on_war_started
+    }
+}
+
+on_war_transferred = {
+    on_actions = {
+        custom_on_war_started
+    }
+}
+
+on_join_war_as_secondary = {
+    on_actions = {
+        custom_on_war_started
+    }
+}
+
+custom_on_war_started = {
+    effect = {
+        scope:attacker  = {
+            trigger_event = { 
+                id = CallToArms_event.1 
+            } 
+        }
+
+        scope:defender  = {
+            trigger_event = { 
+                id = CallToArms_event.1 
+            } 
+        }
+    }
+}
